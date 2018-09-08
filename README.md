@@ -11,9 +11,9 @@ The Learning Outcomes Are:
 
 1 The Twitter API Intro
 
-    * Register this app with [Twitter Developer](https://developer.twitter.com), 
-    * See What's trending, 
-    * Look at what's trending in multiple locations
+   * Register this app with [Twitter Developer](https://developer.twitter.com), 
+   * See What's trending, 
+   * Look at what's trending in multiple locations
     
 2 Twitter API Access
 
