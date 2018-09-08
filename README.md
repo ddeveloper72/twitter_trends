@@ -17,23 +17,23 @@ The Learning Outcomes Are:
     
 2 Twitter API Access
 
-    * Harvest tweets, 
-    * Format a tweet, 
-    * Access tweet attributes, 
-    * Harvest tweet attributes, 
-    * Frequency analysis and 
-    * Prettify the output.
+   * Harvest tweets, 
+   * Format a tweet, 
+   * Access tweet attributes, 
+   * Harvest tweet attributes, 
+   * Frequency analysis and 
+   * Prettify the output.
 
 3 Twitter Streams - Storing Data
 
-    * Access and store the Twitter stream, 
-    * Read back the stored data file
+   * Access and store the Twitter stream, 
+   * Read back the stored data file
     
 4 An Introduction to Data Mining!
 
-    * [IPython](https://ipython.org/)
-    * [Jupyter](http://jupyter.org/) Notebooks
-    * [matplotlib](https://matplotlib.org/)
+   * [IPython](https://ipython.org/)
+   * [Jupyter](http://jupyter.org/) Notebooks
+   * [matplotlib](https://matplotlib.org/)
 
 ## The Results!
 
@@ -51,7 +51,8 @@ The sample data came from a snapshot of 500 tweets taken and recorded to a json 
 
 ![Programming Language Trends](https://github.com/ddeveloper72/twitter_trends/blob/master/images/twitterPieCharts.PNG "Fig 2 showing Programming Language Trends")
 
-# Programming Language Trends Code Sample:
+## Programming Language Trends. 
+(Code Sample from the Tutorial, written in Jupyter Notebook)
 
 ### 1 Loading our tweets data created from our snapshot
 
