@@ -5,7 +5,7 @@
 Welcome to my Python project on Cloud9 IDE!  Yes I've taken over the default Readme
 to add in a few more bits about what this [Code Institute](https://courses.codeinstitute.net/) tutorial was all about.
 
-This tutoral focused on creating python apps which tap into the power of the twitter API using [Tweepy](http://www.tweepy.org/)
+This tutorial focused on creating python apps which tap into the power of the twitter API using [Tweepy](http://www.tweepy.org/)
 
 The Learning Outcomes Are:
 
@@ -91,7 +91,7 @@ def is_token_in_tweet_text(token, tweet_text):
 results  = read_json(TWEETS_DATA_PATH)
 ```
 
-### 3 Counting and catagorizing the Keywords
+### 3 Counting and categorizing the Keywords
 
 ```python
 import pandas
