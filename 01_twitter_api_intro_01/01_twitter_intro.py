@@ -3,14 +3,13 @@ import json
 from tweepy import OAuthHandler
 from twitter import twitter_api, get_auth
 
-api = twitter_api()
-
 auth = get_auth()
 
-api = tweepy.API(auth)
+API = tweepy.API(auth)
 
 DUB_WOE_ID = 560743
+LON_WOE_ID = 44418
 
-dub_trends = api.trends_place(DUB_WOE_ID)
+dub_trends = API.get_place_trends(DUB_WOE_ID)
 
 print(json.dumps(dub_trends, indent=1))
