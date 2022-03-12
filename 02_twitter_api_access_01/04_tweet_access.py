@@ -5,17 +5,15 @@ from collections import Counter
 from prettytable import PrettyTable
 from twitter import twitter_api, get_auth
 
-api = twitter_api()
-
 auth = get_auth()
 
-api = tweepy.API(auth)
+API = tweepy.API(auth)
 
 count = 50
 query = "Weather"
 
 # Get all status
-results = [status for status in tweepy.Cursor(api.search, q=query).items(count)]
+results = [status for status in tweepy.Cursor(API.search, q=query).items(count)]
 
 status_texts = [status._json['text'] for status in results]
 
