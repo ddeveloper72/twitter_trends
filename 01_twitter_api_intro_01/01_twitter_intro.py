@@ -8,7 +8,6 @@ auth = get_auth()
 API = tweepy.API(auth)
 
 DUB_WOE_ID = 560743
-LON_WOE_ID = 44418
 
 dub_trends = API.get_place_trends(DUB_WOE_ID)
 
