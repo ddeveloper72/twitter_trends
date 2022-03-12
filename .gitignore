@@ -4,3 +4,4 @@ twitter_trends.code-workspace
 .vscode
 .venv
 __pycache__
+.env
