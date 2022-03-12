@@ -15,27 +15,29 @@ count = 10
 query = "#Dublin"
 
 # Get all status
-results = [status for status in tweepy.Cursor(api.search, q=query).items(count)]
+results = [status for status in tweepy.Cursor(
+    api.search_tweets, q=query).items(count)]
 
 status_texts = [status._json['text'] for status in results]
 
 screen_names = [status._json['user']['screen_name']
-                                for status in results
-                                    for mention in status._json['entities']['user_mentions']]
+                for status in results
+                for mention in status._json['entities']['user_mentions']]
 
 hashtags = [hashtag['text']
-                                for status in results
-                                    for hashtag in status._json['entities']['hashtags']]
-                                    
+            for status in results
+            for hashtag in status._json['entities']['hashtags']]
+
 words = [word
-                        for text in status_texts
-                            for word in text.split()]
+         for text in status_texts
+         for word in text.split()]
 
 for label, data in (('Text', status_texts),
-                        ('Screen Name', screen_names),
-                        ('Hashtags', hashtags)):
-        table = PrettyTable(field_names=[label, 'Count'])
-        counter = Counter(data)
-        [table.add_row(entry) for entry in counter.most_common()[:10]]
-        table.align[label], table.align['Count'] = 'l', 'r' # left & right align the columns
-        print(table)
+                    ('Screen Name', screen_names),
+                    ('Hashtags', hashtags)):
+    table = PrettyTable(field_names=[label, 'Count'])
+    counter = Counter(data)
+    [table.add_row(entry) for entry in counter.most_common()[:10]]
+    # left & right align the columns
+    table.align[label], table.align['Count'] = 'l', 'r'
+    print(table)
