@@ -6,17 +6,15 @@ from prettytable import PrettyTable
 from operator import itemgetter
 from twitter import twitter_api, get_auth
 
-api = twitter_api()
-
 auth = get_auth()
 
-api = tweepy.API(auth)
+API = tweepy.API(auth)
 
 count = 10
 query = "#allirelandfinal"
 
 # get all tweets for the search query
-results = [status for status in tweepy.Cursor(api.search, q=query).items(count)]
+results = [status for status in tweepy.Cursor(API.search, q=query).items(count)]
 
 min_retweets = 10   # The minimum number of times a status is retweeted to gain
                     # entry into our list.  We change this to suit our own purposes.
