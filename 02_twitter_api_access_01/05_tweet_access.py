@@ -14,7 +14,7 @@ query = "#Dublin"
 
 # Get all status
 results = [status for status in tweepy.Cursor(
-    API.search, q=query).items(count)]
+    API.search_tweets, q=query).items(count)]
 
 status_texts = [status._json['text'] for status in results]
 
@@ -30,12 +30,12 @@ words = [word
          for text in status_texts
          for word in text.split()]
 
-for lable, data in (('Text', status_texts),
+for label, data in (('Text', status_texts),
                     ('Screen Name', screen_names),
                     ('Hashtags', hashtags)):
-    table = PrettyTable(field_names=[lable, 'Count'])
+    table = PrettyTable(field_names=[label, 'Count'])
     counter = Counter(data)
     [table.add_row(entry) for entry in counter.most_common()[:10]]
     # left & right align the columns
-    table.align[lable], table.align['Count'] = 'l', 'r'
+    table.align[label], table.align['Count'] = 'l', 'r'
     print(table)
