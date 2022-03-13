@@ -5,3 +5,4 @@ twitter_trends.code-workspace
 .venv
 __pycache__
 .env
+*/tweet_mining.json
