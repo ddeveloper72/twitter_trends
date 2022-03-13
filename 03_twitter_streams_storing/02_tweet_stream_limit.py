@@ -1,20 +1,33 @@
+import tweepy
 from tweepy import OAuthHandler
-from tweepy import Stream
-from tweepy.streaming import StreamListener
-from twitter import get_auth, twitter_api
+from tweepy import StreamListener
+from decouple import config
 
-api = twitter_api()
+# get secret keys for .env file managed by decouple
+CONSUMER_KEY = config('Consumer_Key', default='')
+CONSUMER_SECRET = config('Consumer_Secret', default='')
+OAUTH_TOKEN = config('OAUTH_Token', default='')
+OAUTH_TOKEN_SECRET = config('OAUTH_Token_Secret', default='')
 
-keyword_list =['Python', 'JavaScript', 'C#', 'PHP'] # Track list
+# prep auth for API StreamListener
+auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+auth.set_access_token(OAUTH_TOKEN, OAUTH_TOKEN_SECRET)
+
+# rate limit the number of tweets from the API
+api = tweepy.API(auth, wait_on_rate_limit=True)
+
+#  Use a list of keywords to search tweets
+keyword_list = ['Python', 'JavaScript', 'C#', 'PHP']  # Track list
 
 limit = 500
 
+
 class MyStreamListener(StreamListener):
-    
+
     def __init__(self):
         super(MyStreamListener, self).__init__()
         self.num_tweets = 0
-        
+
     def on_data(self, data):
         if self.num_tweets < limit:
             self.num_tweets += 1
@@ -23,19 +36,15 @@ class MyStreamListener(StreamListener):
                     tweet_file.write(data)
                     return True
             except BaseException as e:
-                print("Failed on data: %s"%str(e))
+                print("Failed on data: %s" % str(e))
             return True
         else:
             return True
-        
+
     def on_error(self, status):
         print(status)
         return True
-        
-auth = get_auth()
-    
-twitter_stream = Stream(auth, MyStreamListener())
+
+
+twitter_stream = tweepy.Stream(auth, MyStreamListener())
 twitter_stream.filter(track=keyword_list)
-
-
-
